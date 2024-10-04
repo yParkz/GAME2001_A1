@@ -2,19 +2,48 @@
 //
 
 #include <iostream>
+#include "Array.h"
+#include "UnorderedArray.h"
+#include "OrderedArray.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+        UnorderedArray<int> uArr;
+        uArr.Push(40);
+        uArr.Push(80);
+        uArr.Push(60);
+
+        std::cout << "Unordered Array: ";
+        for (int i = 0; i < uArr.GetSize(); ++i) 
+        {
+            std::cout << uArr[i] << " ";
+        }
+        std::cout << std::endl;
+
+        OrderedArray<int> oArr(2, false);
+        oArr.Push(40);
+        oArr.Push(60);
+        oArr.Push(80);
+
+        std::cout << "Ordered Array: ";
+        for (int i = 0; i < oArr.GetSize(); ++i) 
+        {
+            std::cout << oArr[i] << " ";
+        }
+        std::cout << std::endl;
+
+        OrderedArray<int> oArrNoDuplicates(2, true);
+        oArrNoDuplicates.Push(40);
+        oArrNoDuplicates.Push(60);
+        oArrNoDuplicates.Push(40);
+        oArrNoDuplicates.Push(80);
+
+        std::cout << "Ordered Array (No Duplicates): ";
+        for (int i = 0; i < oArrNoDuplicates.GetSize(); ++i) 
+        {
+            std::cout << oArrNoDuplicates[i] << " ";
+        }
+        std::cout << std::endl;
+
+        return 0;
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
